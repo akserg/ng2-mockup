@@ -1,0 +1,28 @@
+#container {
+    width: 240px;
+    max-width: 700px;
+    height: auto;
+    margin: 2em auto;
+}
+.cols {
+    -moz-column-count:2;
+    -moz-column-gap: 3%;
+    -moz-column-width: 30%;
+    -webkit-column-count:2;
+    -webkit-column-gap: 3%;
+    -webkit-column-width: 30%;
+    column-count: 2;
+    column-gap: 3%;
+    column-width: 30%;
+}
+.box {
+    margin-bottom: 20px;
+    height:100px;
+    background:#BFBFBF;
+}
+
+.sidebar-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
