@@ -2,6 +2,8 @@ import { Component, ComponentResolver, ViewContainerRef, ComponentRef, Component
 import {CORE_DIRECTIVES} from '@angular/common';
 import { Type } from '@angular/common/src/facade/lang';
 
+import {DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
+
 import {Page, PageService} from '../shared/page.service';
 import {setProperty, getProperty} from '../../shared/property';
 import {ComponentService} from '../../components/component.service';
@@ -9,7 +11,7 @@ import {ComponentService} from '../../components/component.service';
 @Component({
     selector: 'page',
     templateUrl: `app/pages/page/page.component.html`,
-    directives: [CORE_DIRECTIVES]
+    directives: [CORE_DIRECTIVES, DND_DIRECTIVES]
 })
 export class PageComponent {
 
@@ -29,7 +31,7 @@ export class PageComponent {
     constructor(private pageService: PageService, private componentService: ComponentService, private resolver: ComponentResolver) {
     }
 
-    addItem(kind: string) {
+    addComponent(kind: string) {
         let type: Type = this.componentService.getType(kind);
         this.resolver.resolveComponent(type).then((factory: ComponentFactory<any>) => {
             let cmp: ComponentRef<any> = this.target.createComponent(factory);
