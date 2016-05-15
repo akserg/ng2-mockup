@@ -2,7 +2,7 @@ import { Component, ComponentResolver, ViewContainerRef, ComponentRef, Component
 import {CORE_DIRECTIVES} from '@angular/common';
 import { Type } from '@angular/common/src/facade/lang';
 
-import {DND_DIRECTIVES} from 'ng2-dnd/ng2-dnd';
+import {DND_DIRECTIVES, DragDropData} from 'ng2-dnd/ng2-dnd';
 
 import {Page, PageService} from '../shared/page.service';
 import {setProperty, getProperty} from '../../shared/property';
@@ -31,10 +31,15 @@ export class PageComponent {
     constructor(private pageService: PageService, private componentService: ComponentService, private resolver: ComponentResolver) {
     }
 
-    addComponent(kind: string) {
+    addComponent($event: DragDropData) {
+        let kind: string = $event.dragData;
+        let mouseEvent: MouseEvent = $event.mouseEvent;
         let type: Type = this.componentService.getType(kind);
         this.resolver.resolveComponent(type).then((factory: ComponentFactory<any>) => {
             let cmp: ComponentRef<any> = this.target.createComponent(factory);
+            cmp.instance.top = mouseEvent.offsetY;
+            cmp.instance.left = mouseEvent.offsetX;
+            cmp.instance.updateComponent();
             console.log(cmp);
         });
     }

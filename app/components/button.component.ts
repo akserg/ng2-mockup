@@ -1,6 +1,8 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 
+import {BaseComponent} from './base.component';
+
 @Component({
     selector: 'md-button',
     directives: [CORE_DIRECTIVES],
@@ -11,7 +13,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 <div class="button" attr.data-attribute="{{text}}" attr.width="{{width}}">{{text}}</div>
 `
 })
-export class ButtonComponent {
+export class ButtonComponent extends BaseComponent {
     @Input() text: string = 'Button';
 
     @Input() top: string = '0';
@@ -19,10 +21,9 @@ export class ButtonComponent {
     @Input() width: string = '80';
     @Input() height: string = '30';
 
-    constructor(private elRef: ElementRef) {
-        this.elRef.nativeElement.style.top = this.top;
-        this.elRef.nativeElement.style.left = this.left;
-        this.elRef.nativeElement.style.width = this.width;
-        this.elRef.nativeElement.style.height = this.height;
+    constructor(elRef: ElementRef) {
+        super(elRef);
     }
+
+
 }

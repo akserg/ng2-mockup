@@ -1,6 +1,8 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 
+import {BaseComponent} from './base.component';
+
 @Component({
     selector: 'md-checkbox',
     directives: [CORE_DIRECTIVES],
@@ -12,7 +14,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 <span attr.data-attribute="text">{{text}}</span>
 `
 })
-export class CheckboxComponent {
+export class CheckboxComponent extends BaseComponent  {
     @Input() checked: boolean = true;
     @Input() text: string = 'Label';
 
@@ -21,10 +23,7 @@ export class CheckboxComponent {
     @Input() width: string = '80';
     @Input() height: string = '30';
 
-    constructor(private elRef: ElementRef) {
-        this.elRef.nativeElement.style.top = this.top;
-        this.elRef.nativeElement.style.left = this.left;
-        this.elRef.nativeElement.style.width = this.width;
-        this.elRef.nativeElement.style.height = this.height;
+    constructor(elRef: ElementRef) {
+        super(elRef);
     }
 }

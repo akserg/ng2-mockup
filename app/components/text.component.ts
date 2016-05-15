@@ -1,6 +1,8 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 
+import {BaseComponent} from './base.component';
+
 @Component({
     selector: 'md-text',
     directives: [CORE_DIRECTIVES],
@@ -14,7 +16,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 </div>
 `
 })
-export class TextComponent {
+export class TextComponent extends BaseComponent {
     @Input() labelText: string = 'Label';
     @Input() hasLabel: boolean = true;
 
@@ -23,10 +25,7 @@ export class TextComponent {
     @Input() width: string = '200';
     @Input() height: string = '30';
 
-    constructor(private elRef: ElementRef) {
-        this.elRef.nativeElement.style.top = this.top;
-        this.elRef.nativeElement.style.left = this.left;
-        this.elRef.nativeElement.style.width = this.width;
-        this.elRef.nativeElement.style.height = this.height;
+    constructor(elRef: ElementRef) {
+        super(elRef);
     }
 }

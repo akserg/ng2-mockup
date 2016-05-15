@@ -1,6 +1,8 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 
+import {BaseComponent} from './base.component';
+
 @Component({
     selector: 'md-label',
     directives: [CORE_DIRECTIVES],
@@ -11,7 +13,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 <strong attr.data-attribute="text" [ngStyle]="styles">{{text}}</strong>
 `
 })
-export class LabelComponent {
+export class LabelComponent extends BaseComponent {
     @Input() text: string = 'Label';
     @Input() color: string = '#383838';
     @Input() size: string = '18';
@@ -28,10 +30,7 @@ export class LabelComponent {
         };
     }
 
-    constructor(private elRef: ElementRef) {
-        this.elRef.nativeElement.style.top = this.top;
-        this.elRef.nativeElement.style.left = this.left;
-        this.elRef.nativeElement.style.width = this.width;
-        this.elRef.nativeElement.style.height = this.height;
+    constructor(elRef: ElementRef) {
+        super(elRef);
     }
 }
