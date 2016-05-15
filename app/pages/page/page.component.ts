@@ -40,7 +40,6 @@ export class PageComponent {
             cmp.instance.top = mouseEvent.offsetY;
             cmp.instance.left = mouseEvent.offsetX;
             cmp.instance.updateComponent();
-            console.log(cmp);
         });
     }
 }
