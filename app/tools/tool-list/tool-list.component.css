@@ -16,9 +16,10 @@
     column-width: 30%;
 }
 .box {
-    margin-bottom: 20px;
+    margin-bottom:40px;
     height:100px;
-    background:#BFBFBF;
+    text-align: center;
+    /*background:#BFBFBF;*/
 }
 
 .sidebar-container {
