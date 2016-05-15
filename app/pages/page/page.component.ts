@@ -4,7 +4,7 @@ import { Type } from '@angular/common/src/facade/lang';
 
 import {Page, PageService} from '../shared/page.service';
 import {setProperty, getProperty} from '../../shared/property';
-import * as cpm from '../../components/index';
+import {ComponentService} from '../../components/component.service';
 
 @Component({
   selector: 'page',
@@ -25,11 +25,12 @@ export class PageComponent {
         return res;
     }
 
-    constructor(private pageService: PageService, loader: DynamicComponentLoader, view: ViewContainerRef) {
+    constructor(private pageService: PageService, private componentService:ComponentService, loader: DynamicComponentLoader, view: ViewContainerRef) {
         this.pageService.init(loader, view);
     }
 
-    addItem(kind: Type) {
-        this.pageService.addComponent(kind);
+    addItem(kind: string) {
+        let type: Type = this.componentService.getType(kind);
+        this.pageService.addComponent(type, 'anchor');
     }
 }
