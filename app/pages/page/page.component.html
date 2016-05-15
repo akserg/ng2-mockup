@@ -1,5 +1,8 @@
-<button (click)="addItem('button')">Add Button</button><button (click)="addItem('label')">Add Label</button><br>
+<button (click)="addItem('button')">Add Button</button>
+<button (click)="addItem('label')">Add Label</button>
+<button (click)="addItem('checkbox')">Add Checkbox</button>
+<button (click)="addItem('radio')">Add Radio</button>
+<button (click)="addItem('text')">Add Text</button><br>
 <div class="page" [ngStyle]="pageStyle">
-    <div #anchor hidden></div>
-    <!-- Place to add components -->
+    <div hidden  #container></div>
 </div>

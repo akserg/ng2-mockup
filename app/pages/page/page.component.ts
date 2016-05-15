@@ -1,4 +1,4 @@
-import { Component, Input, DynamicComponentLoader, ViewContainerRef, ComponentRef } from '@angular/core';
+import { Component, ComponentResolver, ViewContainerRef, ComponentRef, ComponentFactory, ViewChild, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import { Type } from '@angular/common/src/facade/lang';
 
@@ -7,14 +7,15 @@ import {setProperty, getProperty} from '../../shared/property';
 import {ComponentService} from '../../components/component.service';
 
 @Component({
-  selector: 'page',
-  templateUrl: `app/pages/page/page.component.html`,
-  directives: [CORE_DIRECTIVES]
+    selector: 'page',
+    templateUrl: `app/pages/page/page.component.html`,
+    directives: [CORE_DIRECTIVES]
 })
 export class PageComponent {
 
     static STYLES: string[] = ['background-color'];
 
+    @ViewChild('container', { read: ViewContainerRef }) target: ViewContainerRef;
     @Input() page: Page;
 
     get pageStyle(): any {
@@ -25,12 +26,14 @@ export class PageComponent {
         return res;
     }
 
-    constructor(private pageService: PageService, private componentService:ComponentService, loader: DynamicComponentLoader, view: ViewContainerRef) {
-        this.pageService.init(loader, view);
+    constructor(private pageService: PageService, private componentService: ComponentService, private resolver: ComponentResolver) {
     }
 
     addItem(kind: string) {
         let type: Type = this.componentService.getType(kind);
-        this.pageService.addComponent(type, 'anchor');
+        this.resolver.resolveComponent(type).then((factory: ComponentFactory<any>) => {
+            let cmp: ComponentRef<any> = this.target.createComponent(factory);
+            console.log(cmp);
+        });
     }
 }

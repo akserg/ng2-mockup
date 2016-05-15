@@ -363,3 +363,106 @@ table.dataTable thead .sorting::after {
   -webkit-box-shadow: 0 0 10px #bebebe;
   border: 1px solid #d1d1d1;
 }
+
+/******************/
+
+.object {
+    position: absolute !important;
+    cursor: move;
+    outline: none;
+}
+
+.object .button {
+    background-color: #e8e8e8;
+    color: #383838;
+    border-radius: 5px;
+    padding: 2px 5px;
+    text-align: center;
+    font-weight: normal;
+    border: 3px solid #383838;
+}
+
+.object .button input {
+    text-align: center;
+}
+
+.object .checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: #e8e8e8;
+    border: 3px solid #383838;
+    border-radius: 20%;
+}
+
+.object .checkbox.checked:after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 5px;
+    background: transparent;
+    top: 7px;
+    left: 6px;
+
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+}
+
+.object .checkbox ~ span {
+    min-width: 200px;
+    margin-top: -23px;
+    margin-left: 34px;
+    font-weight: bold;
+    position: absolute;
+}
+
+.object .radio {
+    width: 20px;
+    height: 20px;
+    background-color: #e8e8e8;
+    border: 3px solid #383838;
+    border-radius: 50%;
+}
+
+.object .radio.checked:after {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    content: "";
+    width: 45%;
+    height: 45%;
+    background-color: #5a5a5a;
+    border-radius: 50%;
+}
+
+.object .radio ~ span {
+    min-width: 200px;
+    margin-top: -23px;
+    margin-left: 32px;
+    font-weight: bold;
+    position: absolute;
+}
+
+.object .text-input {
+    height: 100%;
+}
+
+.object .text-input label {
+    font-weight: bold;
+    cursor: move;
+    color: #383838;
+    font-size: 17px;
+}
+
+.object .text-input .input {
+    width: 100%;
+    height: 100%;
+    background-color: #e8e8e8;
+    border: 3px solid #383838;
+}

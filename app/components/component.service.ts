@@ -16,7 +16,7 @@ export class ComponentService {
             case 'label': return LabelComponent;
             case 'radio': return RadioComponent;
             case 'text': return TextComponent;
-            default: throw new Error(`Unknown kind ${kind}`);
+            default: throw new Error(`Unknown kind of component ${kind}`);
         }
     }
 }
