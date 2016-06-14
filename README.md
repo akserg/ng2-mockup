@@ -1,5 +1,7 @@
 # ng2-mockup
 
+Angular 2 tool to create mockups
+
 ### Quick start
 
 ```bash
