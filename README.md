@@ -1,68 +1,99 @@
-# This is your [AngularAttack](https://www.angularattack.com) 2016 Repo
+# ng2-mockup
 
-This repo is the start of your AngularAttack 2016 entry. It contains the simple [Angular2 starter](https://angular.io/docs/ts/latest/quickstart.html) files.
+### Quick start
 
-**DO NOT MAKE ANY CODE CHECKINS TO THIS REPOSITORY BEFORE THE COMPETITION OFFICIALLY BEGINS.**
+```bash
+# clone our repo
+# --depth 1 removes all but one .git commit history
+git clone --depth 1 https://github.com/akserg/ng2-mockup.git
 
-**DOING SO COULD DISQUALIFY YOU.**
+# change directory to our repo
+cd ng2-mockup
 
+# install the repo with npm
+npm install
 
-However, before the competition starts, there are some things we encourage you to do to get prepared for the competition.
+# start the server
+npm start
+```
+go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http://localhost:3000) in your browser
 
+# Getting Started
+## Dependencies
+What you need to run this app:
+* `node` and `npm` (`brew install node`)
+* Ensure you're running the latest versions Node `v4.1.x`+ and NPM `2.14.x`+
 
-### Step 1) Get Your Local Environment setup
+Once you have those, you should install these globals with `npm install --global`:
+* `webpack` (`npm install --global webpack`)
+* `webpack-dev-server` (`npm install --global webpack-dev-server`)
+* `karma` (`npm install --global karma-cli`)
+* `protractor` (`npm install --global protractor`)
+* `typings` (`npm install --global typings`)
+* `typescript` (`npm install --global typescript`)
 
-Clone this repo locally, and make sure all your team members have access to it.
+## Installing
+* `fork` this repo
+* `clone` your fork
+* `npm install` to install all dependencies
+* `typings install` to install necessary typings
+* `npm run server` to start the dev server in another tab
 
-* Install the latest [Node / NPM](https://nodejs.org).
+## Running the app
+After you have installed all dependencies you can now run the app. Run `npm run server` to start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://0.0.0.0:3000` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:3000/`).
 
-* `git clone git@github.com:rumblex/angularattack2016-silver-bullet.git`
+### server
+```bash
+# development
+npm run server
+# production
+npm run build:prod
+npm run server:prod
+```
 
-* `cd angularattack2016-silver-bullet`
+## Other commands
 
-* `npm install`
+### build files
+```bash
+# development
+npm run build:dev
+# production
+npm run build:prod
+```
 
-* `npm start` will start the server locally to test that everything is running correctly
+### watch and build files
+```bash
+npm run watch
+```
 
+### run tests
+```bash
+npm run test
+```
 
-### Step 2) Deploy Your App
+### watch and run our tests
+```bash
+npm run watch:test
+```
 
-While you can't make any checkins before the comp, what you **can** do right now is deploy this sample app to [Surge](https://surge.sh) (our competition hosting provider).
+### run end-to-end tests
+```bash
+# make sure you have your server running in another terminal
+npm run e2e
+```
 
-* `npm install -g surge`
+### run webdriver (for end-to-end)
+```bash
+npm run webdriver:update
+npm run webdriver:start
+```
 
-* `surge .`
+### run Protractor's elementExplorer (for end-to-end)
+```bash
+npm run webdriver:start
+# in another terminal
+npm run e2e:live
+```
 
-Note: please do not remove the `CNAME` file, as that tells it where to deploy to.
-
-If receive the error message `"You do not have permission to publish to silver-bullet.2016.angularattack.io"`, it might mean another team member has already deployed your project to Surge. Ask them to run the next step to give you access.
-
-### Step 3) Add Your Team Members to Surge
-
-* `surge . --add noddysouthgate@gmail.com,akserg@gmail.com`
-
-
-### Step 4) Wait til competition starts
-
-It begins at exactly [May 14 at 00:00 UTC](https://www.wolframalpha.com/input/?i=May+14,+2016+0:00+UTC). Once the competition starts,   you can write over this project.
-
-
-The `npm start` command first compiles the application, 
-then simultaneously re-compiles and runs the `lite-server`.
-Both the compiler and the server watch for file changes.
-
-Shut it down manually with Ctrl-C.
-
-You're ready to write your application.
-
-### npm scripts
-
-The most useful commands in npm scripts defined in the `package.json`:
-
-* `npm start` - runs the compiler and a server at the same time, both in "watch mode".
-* `npm run tsc` - runs the TypeScript compiler once.
-* `npm run tsc:w` - runs the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
-* `npm run lite` - runs the [lite-server](https://www.npmjs.com/package/lite-server), a light-weight, static file server
-* `npm run typings` - runs the typings tool.
-* `npm run postinstall` - called by *npm* automatically *after* it successfully completes package installation. This script installs the TypeScript definition files this app requires.
-
+# License
+ [MIT](/LICENSE)
